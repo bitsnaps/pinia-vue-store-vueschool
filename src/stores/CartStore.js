@@ -2,11 +2,13 @@ import { defineStore, acceptHMRUpdate } from "pinia";
 import { useLocalStorage } from "@vueuse/core";
 import { groupBy } from "lodash";
 import { useAuthUserStore } from "@/stores/AuthUserStore";
+
 export const useCartStore = defineStore("CartStore", {
   historyEnabled: true,
   state: () => {
     return {
       items: useLocalStorage("CartStore:items", []),
+      // when using acceptHMRUpdate from pinia, you can inject an object without changing the current state of the page:
       test: "hello world",
     };
   },
