@@ -32,6 +32,9 @@ export const useCartStore = defineStore("CartStore", {
         `${authUserStore.username} just bought ${this.count} items at a total of $${this.total}`
       );
     },
+    clearCart() {
+      this.items = [];
+    },
     addItems(count, item) {
       count = parseInt(count);
       for (let index = 0; index < count; index++) {
